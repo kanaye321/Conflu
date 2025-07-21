@@ -1,0 +1,1608 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRPH-MIS Complete User Guide</title>
+    <style>
+        /* Confluence-style CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #172b4d;
+            background-color: #f4f5f7;
+        }
+
+        .confluence-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #0052cc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .navigation {
+            background: #f4f5f7;
+            padding: 15px 20px;
+            border-bottom: 1px solid #dfe1e6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: #0052cc;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            background-color: #e4edfc;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            color: #0052cc;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0052cc;
+        }
+
+        .section h3 {
+            color: #172b4d;
+            font-size: 1.5rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .section h4 {
+            color: #505f79;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .info-panel {
+            background: #e3fcef;
+            border-left: 4px solid #00875a;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+
+        .warning-panel {
+            background: #fff4e6;
+            border-left: 4px solid #ff8b00;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+
+        .error-panel {
+            background: #ffebe6;
+            border-left: 4px solid #de350b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+
+        .tip-panel {
+            background: #e6fcff;
+            border-left: 4px solid #00b8d9;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+
+        .code-block {
+            background: #f4f5f7;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #0052cc;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            border: 1px solid #dfe1e6;
+            border-radius: 6px;
+            padding: 20px;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 4px 8px rgba(9, 30, 66, 0.25);
+        }
+
+        .feature-card h4 {
+            color: #0052cc;
+            margin-bottom: 10px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dfe1e6;
+        }
+
+        th, td {
+            border: 1px solid #dfe1e6;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #f4f5f7;
+            font-weight: 600;
+            color: #172b4d;
+        }
+
+        .button {
+            display: inline-block;
+            background: #0052cc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background: #0747a6;
+        }
+
+        .button.secondary {
+            background: #6b778c;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(9, 30, 66, 0.15);
+        }
+
+        .toc {
+            background: #f4f5f7;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: #0052cc;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: #0052cc;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .footer {
+            background: #f4f5f7;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #dfe1e6;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confluence-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🏥 SRPH-MIS Complete User Guide</h1>
+            <p>Comprehensive Manual for Inventory Management & System Operations</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#getting-started">Getting Started</a>
+                <a href="#navigation">Navigation</a>
+                <a href="#assets">Asset Management</a>
+                <a href="#monitoring">Monitoring</a>
+                <a href="#users">User Management</a>
+                <a href="#admin">Administration</a>
+                <a href="#troubleshooting">Troubleshooting</a>
+                <a href="#support">Support</a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h3>📋 Table of Contents</h3>
+                <ul>
+                    <li><a href="#overview">1. System Overview</a></li>
+                    <li><a href="#getting-started">2. Getting Started</a></li>
+                    <li><a href="#navigation">3. Navigation & Interface</a></li>
+                    <li><a href="#assets">4. Asset Management</a></li>
+                    <li><a href="#monitoring">5. Monitoring & Discovery</a></li>
+                    <li><a href="#users">6. User Management</a></li>
+                    <li><a href="#admin">7. Administration</a></li>
+                    <li><a href="#troubleshooting">8. Troubleshooting</a></li>
+                    <li><a href="#support">9. Support & Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 1: Overview -->
+            <div id="overview" class="section">
+                <h2>1. 🎯 System Overview</h2>
+                
+                <div class="info-panel">
+                    <strong>Welcome to SRPH-MIS!</strong><br>
+                    SRPH-MIS is a comprehensive inventory management system designed to help organizations track assets, monitor virtual machines, manage users, and maintain network security efficiently.
+                </div>
+
+                <h3>What is SRPH-MIS?</h3>
+                <p>SRPH-MIS (San Roque Philippine Hospital - Management Information System) is an enterprise-grade platform that provides:</p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🖥️ Asset Management</h4>
+                        <p>Track computers, servers, software licenses, and other IT equipment throughout their lifecycle.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📊 Virtual Machine Monitoring</h4>
+                        <p>Monitor VM performance, status, and resource usage through integrated Zabbix monitoring.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔍 Network Discovery</h4>
+                        <p>Automatically discover and inventory network devices and their configurations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>👥 User Management</h4>
+                        <p>Manage user accounts, roles, and permissions with detailed access control.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔐 Security Features</h4>
+                        <p>BitLocker key management, audit trails, and secure access controls.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📈 Reporting & Analytics</h4>
+                        <p>Generate comprehensive reports and gain insights into your IT infrastructure.</p>
+                    </div>
+                </div>
+
+                <h3>Who Should Use This Guide?</h3>
+                <ul>
+                    <li><strong>IT Administrators:</strong> Managing system configuration and user access</li>
+                    <li><strong>Asset Managers:</strong> Tracking and managing organizational assets</li>
+                    <li><strong>Department Users:</strong> Checking out equipment and viewing department resources</li>
+                    <li><strong>Support Staff:</strong> Providing technical assistance and troubleshooting</li>
+                    <li><strong>Management:</strong> Reviewing reports and system analytics</li>
+                </ul>
+            </div>
+
+            <!-- Section 2: Getting Started -->
+            <div id="getting-started" class="section">
+                <h2>2. 🚀 Getting Started</h2>
+
+                <h3>First Time Login</h3>
+                <div class="warning-panel">
+                    <strong>Default Administrator Account:</strong><br>
+                    Username: <code>admin</code><br>
+                    Password: <code>admin123</code><br>
+                    <em>Please change this password immediately after first login!</em>
+                </div>
+
+                <ol class="step-list">
+                    <li>
+                        <strong>Access the System</strong><br>
+                        Open your web browser and navigate to the SRPH-MIS URL provided by your administrator.
+                    </li>
+                    <li>
+                        <strong>Enter Your Credentials</strong><br>
+                        Type your username and password in the login form. Click "Sign In" to continue.
+                    </li>
+                    <li>
+                        <strong>Change Default Password</strong><br>
+                        If this is your first login with the default admin account, you'll be prompted to change your password.
+                    </li>
+                    <li>
+                        <strong>Explore the Dashboard</strong><br>
+                        After logging in, you'll see the main dashboard with system statistics and quick actions.
+                    </li>
+                </ol>
+
+                <h3>Understanding Your Role</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Description</th>
+                                <th>Key Permissions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Administrator</strong></td>
+                                <td>Full system access and control</td>
+                                <td>All features, user management, system configuration</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asset Manager</strong></td>
+                                <td>Manages inventory and equipment</td>
+                                <td>Asset CRUD, checkout/checkin, maintenance tracking</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Department User</strong></td>
+                                <td>Access to department resources</td>
+                                <td>View department assets, request equipment</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Read-Only User</strong></td>
+                                <td>View-only access to assigned resources</td>
+                                <td>View permissions only, no editing capabilities</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Dashboard Overview</h3>
+                <p>The dashboard is your central hub for accessing all system features:</p>
+                <ul>
+                    <li><strong>Status Cards:</strong> Real-time statistics on assets, users, and system health</li>
+                    <li><strong>Recent Activity:</strong> Timeline of recent system activities and changes</li>
+                    <li><strong>Quick Actions:</strong> Shortcuts to frequently used features</li>
+                    <li><strong>Alerts & Notifications:</strong> Important system messages and warnings</li>
+                </ul>
+
+                <div class="tip-panel">
+                    <strong>💡 Pro Tip:</strong> Bookmark the dashboard URL for quick access. The system works best in modern browsers like Chrome, Firefox, or Edge.
+                </div>
+            </div>
+
+            <!-- Section 3: Navigation -->
+            <div id="navigation" class="section">
+                <h2>3. 🧭 Navigation & Interface</h2>
+
+                <h3>Main Navigation Menu</h3>
+                <p>The sidebar navigation provides access to all system modules:</p>
+
+                <h4>📊 Dashboard Section</h4>
+                <ul>
+                    <li><strong>Dashboard:</strong> Main overview page with statistics and quick actions</li>
+                </ul>
+
+                <h4>🏢 Inventory Management</h4>
+                <ul>
+                    <li><strong>Assets:</strong> Computers, servers, and major equipment</li>
+                    <li><strong>Components:</strong> Internal parts like RAM, CPU, hard drives</li>
+                    <li><strong>Accessories:</strong> Keyboards, mice, monitors, cables</li>
+                    <li><strong>Consumables:</strong> Supplies like toner, paper, batteries</li>
+                    <li><strong>Licenses:</strong> Software licenses and subscriptions</li>
+                </ul>
+
+                <h4>🖥️ Monitoring & Discovery</h4>
+                <ul>
+                    <li><strong>VM Monitoring:</strong> Virtual machine performance and status</li>
+                    <li><strong>Network Discovery:</strong> Scan and discover network devices</li>
+                    <li><strong>Network Dashboard:</strong> Analytics on discovered devices</li>
+                    <li><strong>VM Inventory:</strong> Virtual machine lifecycle management</li>
+                    <li><strong>BitLocker Keys:</strong> Recovery key management (admin only)</li>
+                </ul>
+
+                <h4>👥 User Management</h4>
+                <ul>
+                    <li><strong>Users:</strong> User account management</li>
+                    <li><strong>User Permissions:</strong> Role and permission configuration</li>
+                    <li><strong>Activities:</strong> System activity logs and audit trails</li>
+                </ul>
+
+                <h4>⚙️ Administration</h4>
+                <ul>
+                    <li><strong>Reports:</strong> Generate various system reports</li>
+                    <li><strong>Admin:</strong> System settings and configuration</li>
+                    <li><strong>Database:</strong> Database management and backups</li>
+                </ul>
+
+                <h3>Search and Filtering</h3>
+                <div class="info-panel">
+                    <strong>Global Search:</strong> Use the search bar at the top of any page to quickly find assets, users, or other items across the entire system.
+                </div>
+
+                <h4>Search Tips</h4>
+                <ul>
+                    <li>Use <strong>asset tags</strong> for exact matches</li>
+                    <li>Search by <strong>serial numbers</strong> for hardware identification</li>
+                    <li>Use <strong>partial names</strong> to find users or equipment</li>
+                    <li>Apply <strong>filters</strong> to narrow down results by category, status, or department</li>
+                </ul>
+
+                <h3>User Interface Elements</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🔲 Data Tables</h4>
+                        <p>Sortable columns, pagination, and inline actions for managing lists of items.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📝 Forms</h4>
+                        <p>User-friendly forms with validation and helpful tooltips for data entry.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔄 Status Indicators</h4>
+                        <p>Color-coded badges showing asset status, user roles, and system health.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ Quick Actions</h4>
+                        <p>Context menus and action buttons for common tasks like checkout/checkin.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Asset Management -->
+            <div id="assets" class="section">
+                <h2>4. 💻 Asset Management</h2>
+
+                <h3>Understanding Asset Types</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Asset Type</th>
+                                <th>Examples</th>
+                                <th>Key Information</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Assets</strong></td>
+                                <td>Laptops, Desktops, Servers, Printers</td>
+                                <td>Asset tag, serial number, warranty, location</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Components</strong></td>
+                                <td>RAM, CPU, Hard drives, Graphics cards</td>
+                                <td>Specifications, compatibility, parent asset</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accessories</strong></td>
+                                <td>Keyboards, Mice, Monitors, Cables</td>
+                                <td>Compatibility, condition, availability</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Consumables</strong></td>
+                                <td>Toner, Paper, Batteries, Cables</td>
+                                <td>Quantity, reorder levels, supplier info</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Licenses</strong></td>
+                                <td>Windows, Office, Antivirus, CAD software</td>
+                                <td>License key, expiration, user assignments</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Adding New Assets</h3>
+                <ol class="step-list">
+                    <li>
+                        <strong>Navigate to Asset Type</strong><br>
+                        Click on the appropriate section (Assets, Components, etc.) from the sidebar menu.
+                    </li>
+                    <li>
+                        <strong>Click "Add New"</strong><br>
+                        Look for the "Add Asset" or similar button, usually located at the top right of the page.
+                    </li>
+                    <li>
+                        <strong>Fill Required Information</strong><br>
+                        Complete all required fields marked with an asterisk (*). Common fields include:
+                        <ul>
+                            <li>Name/Model</li>
+                            <li>Asset Tag (auto-generated or custom)</li>
+                            <li>Serial Number</li>
+                            <li>Category/Manufacturer</li>
+                            <li>Purchase Date and Cost</li>
+                            <li>Location</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Set Initial Status</strong><br>
+                        Choose the appropriate status: Available, Checked Out, Maintenance, etc.
+                    </li>
+                    <li>
+                        <strong>Save the Asset</strong><br>
+                        Click "Save" to create the asset. You'll receive a confirmation message.
+                    </li>
+                </ol>
+
+                <div class="tip-panel">
+                    <strong>💡 Asset Tag Best Practice:</strong> Use a consistent naming convention for asset tags, such as "DEPT-TYPE-NUMBER" (e.g., IT-LAP-001 for IT department laptop #001).
+                </div>
+
+                <h3>Asset Checkout Process</h3>
+                <p>When someone needs to use equipment temporarily:</p>
+
+                <ol class="step-list">
+                    <li>
+                        <strong>Find the Asset</strong><br>
+                        Use search or browse to locate the asset you want to checkout.
+                    </li>
+                    <li>
+                        <strong>Click "Checkout"</strong><br>
+                        This button appears in the asset's action menu or details page.
+                    </li>
+                    <li>
+                        <strong>Select User</strong><br>
+                        Choose who will receive the asset. You can search by name or username.
+                    </li>
+                    <li>
+                        <strong>Set Checkout Details</strong><br>
+                        Enter:
+                        <ul>
+                            <li>Expected return date</li>
+                            <li>Purpose or project notes</li>
+                            <li>Special handling instructions</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Confirm Checkout</strong><br>
+                        Review details and click "Checkout Asset" to complete the process.
+                    </li>
+                </ol>
+
+                <h3>Asset Check-in Process</h3>
+                <p>When equipment is returned:</p>
+
+                <ol class="step-list">
+                    <li>
+                        <strong>Locate Checked-Out Asset</strong><br>
+                        Find the asset in the system (it will show as "Checked Out" status).
+                    </li>
+                    <li>
+                        <strong>Click "Check In"</strong><br>
+                        This option appears in the asset's action menu.
+                    </li>
+                    <li>
+                        <strong>Inspect Condition</strong><br>
+                        Physically examine the asset for:
+                        <ul>
+                            <li>Physical damage</li>
+                            <li>Missing accessories</li>
+                            <li>Functionality issues</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Update Asset Information</strong><br>
+                        Record:
+                        <ul>
+                            <li>Current condition</li>
+                            <li>Any issues found</li>
+                            <li>New location if changed</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Complete Check-in</strong><br>
+                        Click "Check In Asset" to make it available for others.
+                    </li>
+                </ol>
+
+                <h3>Asset Status Workflow</h3>
+                <div class="info-panel">
+                    <strong>Asset Lifecycle:</strong><br>
+                    <span style="background: #e3fcef; padding: 4px 8px; border-radius: 3px; margin: 2px;">Available</span> →
+                    <span style="background: #e6fcff; padding: 4px 8px; border-radius: 3px; margin: 2px;">Checked Out</span> →
+                    <span style="background: #fff4e6; padding: 4px 8px; border-radius: 3px; margin: 2px;">Maintenance</span> →
+                    <span style="background: #e3fcef; padding: 4px 8px; border-radius: 3px; margin: 2px;">Available</span>
+                </div>
+
+                <h3>Maintenance Tracking</h3>
+                <h4>Scheduling Preventive Maintenance</h4>
+                <ul>
+                    <li>Set recurring maintenance schedules based on manufacturer recommendations</li>
+                    <li>Create maintenance reminders and notifications</li>
+                    <li>Assign maintenance tasks to specific technicians</li>
+                    <li>Track maintenance costs and service provider information</li>
+                </ul>
+
+                <h4>Recording Maintenance Activities</h4>
+                <ul>
+                    <li>Document all service activities and repairs</li>
+                    <li>Record parts used and associated costs</li>
+                    <li>Maintain warranty compliance documentation</li>
+                    <li>Track service provider performance and contact information</li>
+                </ul>
+
+                <div class="warning-panel">
+                    <strong>⚠️ Important:</strong> Always set asset status to "Maintenance" when equipment is being serviced to prevent it from being checked out to users.
+                </div>
+            </div>
+
+            <!-- Section 5: Monitoring -->
+            <div id="monitoring" class="section">
+                <h2>5. 📡 Monitoring & Discovery Systems</h2>
+
+                <h3>Virtual Machine Monitoring</h3>
+                <p>SRPH-MIS integrates with Zabbix to provide real-time monitoring of virtual machines.</p>
+
+                <h4>Setting Up VM Monitoring</h4>
+                <ol class="step-list">
+                    <li>
+                        <strong>Access VM Monitoring</strong><br>
+                        Navigate to "Monitoring" → "VM Monitoring" from the sidebar.
+                    </li>
+                    <li>
+                        <strong>Configure Zabbix Connection</strong><br>
+                        Click the "Settings" tab and enter:
+                        <ul>
+                            <li>Zabbix URL (e.g., http://107.105.168.201/zabbix)</li>
+                            <li>API Key (generated from Zabbix Administration panel)</li>
+                            <li>Sync interval (recommended: 5 minutes)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Test Connection</strong><br>
+                        Click "Test Connection" to verify the API key and URL are correct.
+                    </li>
+                    <li>
+                        <strong>Enable Auto-sync</strong><br>
+                        Turn on automatic synchronization to keep VM data current.
+                    </li>
+                </ol>
+
+                <h4>Monitoring Capabilities</h4>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🖥️ VM Status</h4>
+                        <p>Real-time status tracking (Running, Stopped, Error)</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ Performance Metrics</h4>
+                        <p>CPU usage, memory consumption, disk space</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔔 Alert Management</h4>
+                        <p>Automated alerts for critical issues and thresholds</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📊 Historical Data</h4>
+                        <p>Performance trends and historical monitoring data</p>
+                    </div>
+                </div>
+
+                <h3>Network Discovery</h3>
+                <p>Automatically discover and inventory network devices on your infrastructure.</p>
+
+                <h4>Running Network Scans</h4>
+                <ol class="step-list">
+                    <li>
+                        <strong>Access Network Discovery</strong><br>
+                        Go to "Monitoring" → "Network Discovery" in the sidebar.
+                    </li>
+                    <li>
+                        <strong>Configure Scan Parameters</strong><br>
+                        Set up your scan with:
+                        <ul>
+                            <li>Target subnets (CIDR format: 192.168.1.0/24)</li>
+                            <li>Port ranges (default: 22,80,443,3389)</li>
+                            <li>DNS servers (default: 107.105.134.9, 107.105.134.8)</li>
+                            <li>Timeout and retry settings</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Start Discovery Scan</strong><br>
+                        Click "Start Scan" and monitor progress in real-time.
+                    </li>
+                    <li>
+                        <strong>Review Results</strong><br>
+                        Examine discovered devices, their services, and configurations.
+                    </li>
+                    <li>
+                        <strong>Generate Reports</strong><br>
+                        Export discovery results for documentation and analysis.
+                    </li>
+                </ol>
+
+                <div class="warning-panel">
+                    <strong>⚠️ Security Consideration:</strong> Network discovery scans should be performed during maintenance windows when possible. Ensure proper authorization before scanning production networks.
+                </div>
+
+                <h4>Discovery Results</h4>
+                <p>The network discovery process identifies:</p>
+                <ul>
+                    <li><strong>Device Information:</strong> IP addresses, hostnames, MAC addresses</li>
+                    <li><strong>Operating Systems:</strong> Detected OS types and versions</li>
+                    <li><strong>Open Services:</strong> Running services and open ports</li>
+                    <li><strong>Hardware Details:</strong> When available, CPU, memory, and storage info</li>
+                    <li><strong>Software Inventory:</strong> Installed applications and configurations</li>
+                </ul>
+
+                <h3>Virtual Machine Inventory</h3>
+                <p>Track virtual machines throughout their lifecycle from deployment to decommissioning.</p>
+
+                <h4>Required VM Information</h4>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Information</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Host Details</strong></td>
+                                <td>Host IP, OS, Physical location, Hypervisor</td>
+                                <td>Infrastructure tracking and management</td>
+                            </tr>
+                            <tr>
+                                <td><strong>VM Configuration</strong></td>
+                                <td>VM ID, Name, IP, Guest OS, Resources</td>
+                                <td>Virtual machine identification and specs</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Assignment</strong></td>
+                                <td>Deployed by, Department, Start/End dates</td>
+                                <td>Usage tracking and accountability</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Documentation</strong></td>
+                                <td>JIRA ticket, Purpose, Decommission reason</td>
+                                <td>Audit trail and change management</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>VM Decommissioning Process</h4>
+                <ol class="step-list">
+                    <li>Navigate to the Virtual Machines section</li>
+                    <li>Find the VM to decommission</li>
+                    <li>Click the action menu (⋮) in the VM row</li>
+                    <li>Select "Decommission VM" from the dropdown</li>
+                    <li>Confirm the decommissioning action</li>
+                    <li>VM status changes to "Decommissioned"</li>
+                </ol>
+
+                <div class="info-panel">
+                    <strong>Note:</strong> Decommissioned VMs remain in the system with historical data intact for auditing purposes. Use the status filter to view decommissioned VMs when needed.
+                </div>
+
+                <h3>BitLocker Recovery Keys</h3>
+                <div class="error-panel">
+                    <strong>🔒 Security Critical Feature:</strong> BitLocker recovery key management is restricted to authorized security personnel only. Access requires administrator privileges.
+                </div>
+
+                <h4>Key Management Functions</h4>
+                <ul>
+                    <li><strong>Secure Storage:</strong> Centralized storage of recovery keys</li>
+                    <li><strong>Asset Association:</strong> Link keys to specific devices and users</li>
+                    <li><strong>Access Logging:</strong> Complete audit trail of all key access attempts</li>
+                    <li><strong>Emergency Access:</strong> Quick key retrieval for urgent situations</li>
+                    <li><strong>Search Capabilities:</strong> Find keys by serial number or device identifier</li>
+                </ul>
+
+                <h4>Recovery Process</h4>
+                <ol class="step-list">
+                    <li>Verify user identity and authorization level</li>
+                    <li>Locate the device in the BitLocker Keys module</li>
+                    <li>Retrieve the associated recovery key</li>
+                    <li>Provide the key to the authorized user</li>
+                    <li>Log the key access event for audit purposes</li>
+                    <li>Monitor for successful drive recovery</li>
+                </ol>
+            </div>
+
+            <!-- Section 6: User Management -->
+            <div id="users" class="section">
+                <h2>6. 👥 User Management & Permissions</h2>
+
+                <h3>User Account Types</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🔵 Administrator</h4>
+                        <ul>
+                            <li>Full system access and control</li>
+                            <li>User management capabilities</li>
+                            <li>System configuration access</li>
+                            <li>Database administration</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🟢 Asset Manager</h4>
+                        <ul>
+                            <li>Asset lifecycle management</li>
+                            <li>Checkout/checkin operations</li>
+                            <li>Maintenance scheduling</li>
+                            <li>Department reporting</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🟡 Department User</h4>
+                        <ul>
+                            <li>View department assets</li>
+                            <li>Request asset assignments</li>
+                            <li>Limited editing capabilities</li>
+                            <li>Self-service functions</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚪ Read-Only User</h4>
+                        <ul>
+                            <li>View-only access</li>
+                            <li>No editing capabilities</li>
+                            <li>Limited to assigned resources</li>
+                            <li>Reporting access only</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Creating New Users</h3>
+                <ol class="step-list">
+                    <li>
+                        <strong>Access User Management</strong><br>
+                        Navigate to "Administration" → "User Management" (Administrator access required).
+                    </li>
+                    <li>
+                        <strong>Click "Add User"</strong><br>
+                        Look for the "Add New User" button at the top of the users list.
+                    </li>
+                    <li>
+                        <strong>Enter Basic Information</strong><br>
+                        Fill in required details:
+                        <ul>
+                            <li>Username (unique identifier)</li>
+                            <li>First and Last Name</li>
+                            <li>Email Address</li>
+                            <li>Department Assignment</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Set Initial Password</strong><br>
+                        Create a temporary password (user should change on first login).
+                    </li>
+                    <li>
+                        <strong>Assign Role and Permissions</strong><br>
+                        Choose the appropriate role and configure specific permissions.
+                    </li>
+                    <li>
+                        <strong>Save and Notify</strong><br>
+                        Save the user account and optionally send a welcome email.
+                    </li>
+                </ol>
+
+                <h3>Permission System</h3>
+                <p>SRPH-MIS uses granular permissions with three access levels for each module:</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Permission Level</th>
+                                <th>Description</th>
+                                <th>Capabilities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>View</strong></td>
+                                <td>Read-only access to module data</td>
+                                <td>See lists, view details, run reports</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Edit</strong></td>
+                                <td>Modify existing records</td>
+                                <td>Update information, change status, checkout/checkin</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Add</strong></td>
+                                <td>Create new records</td>
+                                <td>Add assets, create users, import data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Module Permissions</h4>
+                <p>Permissions can be set individually for each module:</p>
+                <ul>
+                    <li><strong>Assets:</strong> Computer, server, and equipment management</li>
+                    <li><strong>Components:</strong> Internal hardware parts and upgrades</li>
+                    <li><strong>Accessories:</strong> Peripheral devices and equipment</li>
+                    <li><strong>Licenses:</strong> Software licenses and subscriptions</li>
+                    <li><strong>VM Monitoring:</strong> Virtual machine oversight</li>
+                    <li><strong>Network Discovery:</strong> Network scanning and device discovery</li>
+                    <li><strong>BitLocker Keys:</strong> Recovery key management (security critical)</li>
+                    <li><strong>User Management:</strong> User account administration</li>
+                    <li><strong>Reports:</strong> System reporting and analytics</li>
+                    <li><strong>Admin Settings:</strong> System configuration</li>
+                </ul>
+
+                <h3>Managing User Permissions</h3>
+                <ol class="step-list">
+                    <li>
+                        <strong>Navigate to User Permissions</strong><br>
+                        Go to "Administration" → "User Permissions" from the sidebar.
+                    </li>
+                    <li>
+                        <strong>Select User to Modify</strong><br>
+                        Click on the user whose permissions you want to change.
+                    </li>
+                    <li>
+                        <strong>Choose Permission Template</strong><br>
+                        Use preset templates (Administrator, Asset Manager, etc.) or configure custom permissions.
+                    </li>
+                    <li>
+                        <strong>Configure Module Access</strong><br>
+                        Enable or disable View, Edit, and Add permissions for each module.
+                    </li>
+                    <li>
+                        <strong>Save Changes</strong><br>
+                        Click "Save Permissions" and optionally notify the user of changes.
+                    </li>
+                </ol>
+
+                <div class="tip-panel">
+                    <strong>💡 Best Practice:</strong> Follow the principle of least privilege - grant users only the minimum permissions required for their role. Regularly review and audit user permissions.
+                </div>
+
+                <h3>Activity Tracking</h3>
+                <p>The system maintains comprehensive audit logs of all user activities:</p>
+
+                <h4>Logged Activities Include</h4>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>👤 User Actions</h4>
+                        <ul>
+                            <li>Login/logout events</li>
+                            <li>Asset checkout/checkin</li>
+                            <li>Record creation/modification</li>
+                            <li>Permission changes</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚙️ System Events</h4>
+                        <ul>
+                            <li>Database operations</li>
+                            <li>Configuration changes</li>
+                            <li>Backup/restore activities</li>
+                            <li>Security incidents</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Viewing Activity Logs</h4>
+                <ol class="step-list">
+                    <li>Navigate to "Users" → "Activities" from the sidebar</li>
+                    <li>Use filters to narrow down by user, date range, or activity type</li>
+                    <li>Click on any activity for detailed information</li>
+                    <li>Export logs for compliance reporting if needed</li>
+                </ol>
+            </div>
+
+            <!-- Section 7: Administration -->
+            <div id="admin" class="section">
+                <h2>7. ⚙️ System Administration</h2>
+
+                <div class="warning-panel">
+                    <strong>⚠️ Administrator Access Required:</strong> The features described in this section require administrator privileges and can affect system availability.
+                </div>
+
+                <h3>Database Management</h3>
+                <p>Manage the system database, backups, and maintenance operations.</p>
+
+                <h4>Database Backup Operations</h4>
+                <ol class="step-list">
+                    <li>
+                        <strong>Access Database Management</strong><br>
+                        Navigate to "Administration" → "Database" from the sidebar.
+                    </li>
+                    <li>
+                        <strong>Create Manual Backup</strong><br>
+                        Click "Create Backup" button and provide a description.
+                    </li>
+                    <li>
+                        <strong>Select Backup Location</strong><br>
+                        Choose where to store the backup file.
+                    </li>
+                    <li>
+                        <strong>Monitor Progress</strong><br>
+                        Watch the backup progress indicator until completion.
+                    </li>
+                    <li>
+                        <strong>Verify Backup</strong><br>
+                        Confirm the backup was created successfully.
+                    </li>
+                </ol>
+
+                <h4>Automated Backup Configuration</h4>
+                <ul>
+                    <li><strong>Schedule:</strong> Daily automatic backups during low-usage hours</li>
+                    <li><strong>Retention:</strong> Configurable retention period (default: 30 days)</li>
+                    <li><strong>Notifications:</strong> Email alerts for backup failures</li>
+                    <li><strong>Verification:</strong> Automatic backup integrity checks</li>
+                </ul>
+
+                <h4>Database Maintenance Tasks</h4>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🔧 Regular Maintenance</h4>
+                        <ul>
+                            <li>Database optimization</li>
+                            <li>Index rebuilding</li>
+                            <li>Statistics updates</li>
+                            <li>Old log cleanup</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🚨 Emergency Procedures</h4>
+                        <ul>
+                            <li>Database restoration</li>
+                            <li>Corruption recovery</li>
+                            <li>Emergency access</li>
+                            <li>Disaster recovery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>System Configuration</h3>
+                <p>Configure global system settings and preferences.</p>
+
+                <h4>General Settings</h4>
+                <ul>
+                    <li><strong>Site Information:</strong> Company name, logo, contact details</li>
+                    <li><strong>Localization:</strong> Timezone, date format, currency settings</li>
+                    <li><strong>Asset Settings:</strong> Tag format, categories, default statuses</li>
+                    <li><strong>Notifications:</strong> Email templates, alert thresholds</li>
+                    <li><strong>Integration:</strong> API keys, external service configurations</li>
+                </ul>
+
+                <h4>Security Configuration</h4>
+                <ul>
+                    <li><strong>Password Policy:</strong> Complexity requirements, expiration, history</li>
+                    <li><strong>Session Management:</strong> Timeout settings, concurrent sessions</li>
+                    <li><strong>Access Control:</strong> IP restrictions, rate limiting</li>
+                    <li><strong>Audit Settings:</strong> Log retention, compliance reporting</li>
+                    <li><strong>Encryption:</strong> Data-at-rest and transport security</li>
+                </ul>
+
+                <h3>Reporting & Analytics</h3>
+                <p>Generate comprehensive reports and analyze system usage.</p>
+
+                <h4>Available Report Types</h4>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📊 Inventory Reports</h4>
+                        <ul>
+                            <li>Asset inventory summary</li>
+                            <li>Assets by department</li>
+                            <li>Asset valuation report</li>
+                            <li>Warranty expiration</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📈 Usage Reports</h4>
+                        <ul>
+                            <li>Asset utilization rates</li>
+                            <li>Checkout history</li>
+                            <li>User activity summary</li>
+                            <li>License compliance</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔍 Compliance Reports</h4>
+                        <ul>
+                            <li>Audit trail summaries</li>
+                            <li>Security compliance</li>
+                            <li>Change management</li>
+                            <li>Regulatory compliance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Generating Reports</h4>
+                <ol class="step-list">
+                    <li>
+                        <strong>Access Reports Section</strong><br>
+                        Navigate to "Reports" from the sidebar menu.
+                    </li>
+                    <li>
+                        <strong>Select Report Type</strong><br>
+                        Choose from available templates or create a custom report.
+                    </li>
+                    <li>
+                        <strong>Configure Parameters</strong><br>
+                        Set date ranges, filters, and specific criteria.
+                    </li>
+                    <li>
+                        <strong>Choose Output Format</strong><br>
+                        Select PDF, Excel, CSV, or other available formats.
+                    </li>
+                    <li>
+                        <strong>Schedule or Generate</strong><br>
+                        Generate immediately or schedule for recurring creation.
+                    </li>
+                    <li>
+                        <strong>Download Results</strong><br>
+                        Access the completed report and download or share as needed.
+                    </li>
+                </ol>
+
+                <h3>Performance Monitoring</h3>
+                <p>Monitor system performance and optimize resource usage.</p>
+
+                <h4>System Metrics</h4>
+                <ul>
+                    <li><strong>Database Performance:</strong> Query response times, connection pools</li>
+                    <li><strong>Memory Usage:</strong> Application memory consumption and availability</li>
+                    <li><strong>CPU Utilization:</strong> Processing load and patterns</li>
+                    <li><strong>Network Bandwidth:</strong> Data transfer rates and utilization</li>
+                    <li><strong>Storage Metrics:</strong> Disk space usage and I/O performance</li>
+                    <li><strong>User Sessions:</strong> Active users and session statistics</li>
+                </ul>
+
+                <h4>Performance Optimization</h4>
+                <ul>
+                    <li><strong>Database Tuning:</strong> Index optimization and query performance</li>
+                    <li><strong>Caching Strategy:</strong> Implementation of data caching</li>
+                    <li><strong>Resource Allocation:</strong> Memory and CPU allocation adjustment</li>
+                    <li><strong>Background Tasks:</strong> Scheduling of maintenance operations</li>
+                    <li><strong>Data Cleanup:</strong> Historical data archiving and cleanup</li>
+                </ul>
+            </div>
+
+            <!-- Section 8: Troubleshooting -->
+            <div id="troubleshooting" class="section">
+                <h2>8. 🔧 Troubleshooting & Common Issues</h2>
+
+                <h3>Login & Authentication Issues</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🚫 Can't Log In</h4>
+                        <p><strong>Symptoms:</strong> Login form rejects credentials</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify username and password spelling</li>
+                            <li>Check Caps Lock status</li>
+                            <li>Clear browser cache and cookies</li>
+                            <li>Try different browser or incognito mode</li>
+                            <li>Contact administrator if account is locked</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⏱️ Session Expires Quickly</h4>
+                        <p><strong>Symptoms:</strong> Frequent logout prompts</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Check system timeout settings with admin</li>
+                            <li>Ensure cookies are enabled</li>
+                            <li>Avoid opening multiple tabs</li>
+                            <li>Request session length adjustment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Data & Display Issues</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📭 Missing Data</h4>
+                        <p><strong>Symptoms:</strong> Assets or records not visible</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Check applied filters and search terms</li>
+                            <li>Verify permissions for data access</li>
+                            <li>Try refreshing the page (F5)</li>
+                            <li>Check if items are archived</li>
+                            <li>Contact admin to verify data integrity</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🐌 Slow Performance</h4>
+                        <p><strong>Symptoms:</strong> Pages load slowly or timeout</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Check internet connection speed</li>
+                            <li>Clear browser cache and restart browser</li>
+                            <li>Reduce number of displayed items per page</li>
+                            <li>Contact admin about server performance</li>
+                            <li>Try accessing during off-peak hours</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Asset Management Issues</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>❌ Can't Checkout Asset</h4>
+                        <p><strong>Symptoms:</strong> Checkout button disabled or fails</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify asset status is "Available"</li>
+                            <li>Check your user permissions</li>
+                            <li>Ensure target user account is active</li>
+                            <li>Verify asset isn't under maintenance</li>
+                            <li>Confirm asset isn't already checked out</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔄 Duplicate Asset Tags</h4>
+                        <p><strong>Symptoms:</strong> Error when creating assets</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Use the asset tag generator</li>
+                            <li>Check existing assets before creating</li>
+                            <li>Update duplicate tags immediately</li>
+                            <li>Implement tag validation rules</li>
+                            <li>Contact admin to resolve conflicts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>System Error Codes</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Error Code</th>
+                                <th>Description</th>
+                                <th>Solution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>AUTH_001</code></td>
+                                <td>Invalid credentials</td>
+                                <td>Check username/password, reset if needed</td>
+                            </tr>
+                            <tr>
+                                <td><code>AUTH_002</code></td>
+                                <td>Account locked</td>
+                                <td>Contact administrator to unlock account</td>
+                            </tr>
+                            <tr>
+                                <td><code>AUTH_003</code></td>
+                                <td>Session expired</td>
+                                <td>Log in again, check session timeout settings</td>
+                            </tr>
+                            <tr>
+                                <td><code>PERM_001</code></td>
+                                <td>Insufficient permissions</td>
+                                <td>Contact administrator for access rights</td>
+                            </tr>
+                            <tr>
+                                <td><code>PERM_002</code></td>
+                                <td>Resource access denied</td>
+                                <td>Verify user role and department assignment</td>
+                            </tr>
+                            <tr>
+                                <td><code>DB_001</code></td>
+                                <td>Database connection failed</td>
+                                <td>Contact administrator, check database service</td>
+                            </tr>
+                            <tr>
+                                <td><code>DB_002</code></td>
+                                <td>Query timeout</td>
+                                <td>Retry operation, contact admin if persistent</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Browser Compatibility</h3>
+                <div class="info-panel">
+                    <strong>Recommended Browsers:</strong><br>
+                    • Google Chrome (version 90+)<br>
+                    • Mozilla Firefox (version 88+)<br>
+                    • Microsoft Edge (version 90+)<br>
+                    • Safari (version 14+)
+                </div>
+
+                <h4>Browser-Specific Issues</h4>
+                <ul>
+                    <li><strong>Internet Explorer:</strong> Not supported, please upgrade to Edge</li>
+                    <li><strong>Mobile Browsers:</strong> Limited functionality, use desktop browser for full features</li>
+                    <li><strong>Ad Blockers:</strong> May interfere with functionality, whitelist the site</li>
+                    <li><strong>JavaScript:</strong> Must be enabled for proper operation</li>
+                </ul>
+
+                <h3>Emergency Procedures</h3>
+                <div class="error-panel">
+                    <strong>🚨 Critical System Issues:</strong><br>
+                    If the system is completely unavailable or you suspect a security breach:
+                    <ol>
+                        <li>Document the issue with screenshots if possible</li>
+                        <li>Note the exact time the issue occurred</li>
+                        <li>Contact the system administrator immediately</li>
+                        <li>Do not attempt to fix database or server issues yourself</li>
+                        <li>Preserve any error messages or log files</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Section 9: Support -->
+            <div id="support" class="section">
+                <h2>9. 📞 Support & Contact Information</h2>
+
+                <div class="info-panel">
+                    <h3>🎯 Primary Support Contact</h3>
+                    <p><strong>Nikkel Jimenez</strong><br>
+                    System Developer & Administrator<br>
+                    Knox ID: <code>jimenez.n</code></p>
+                </div>
+
+                <h3>When to Contact Support</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🚨 Critical Issues</h4>
+                        <ul>
+                            <li>System completely unavailable</li>
+                            <li>Security breaches or concerns</li>
+                            <li>Data loss or corruption</li>
+                            <li>Multiple users affected</li>
+                        </ul>
+                        <p><strong>Response Time:</strong> 2-4 hours</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚠️ High Priority</h4>
+                        <ul>
+                            <li>Major functionality impacted</li>
+                            <li>Cannot perform critical tasks</li>
+                            <li>Integration failures</li>
+                            <li>Permission issues</li>
+                        </ul>
+                        <p><strong>Response Time:</strong> 8-24 hours</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📝 Medium Priority</h4>
+                        <ul>
+                            <li>Minor feature issues</li>
+                            <li>Enhancement requests</li>
+                            <li>Training needs</li>
+                            <li>Process questions</li>
+                        </ul>
+                        <p><strong>Response Time:</strong> 1-3 business days</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>💡 Low Priority</h4>
+                        <ul>
+                            <li>Documentation updates</li>
+                            <li>General questions</li>
+                            <li>Feature suggestions</li>
+                            <li>Best practice guidance</li>
+                        </ul>
+                        <p><strong>Response Time:</strong> 3-5 business days</p>
+                    </div>
+                </div>
+
+                <h3>Support Request Information</h3>
+                <p>When contacting support, please include the following information to help us resolve your issue quickly:</p>
+
+                <div class="tip-panel">
+                    <strong>📋 Include in Your Request:</strong>
+                    <ul>
+                        <li><strong>Detailed Description:</strong> What you were trying to do and what happened</li>
+                        <li><strong>Reproduction Steps:</strong> Step-by-step instructions to recreate the issue</li>
+                        <li><strong>Screenshots:</strong> Visual evidence of error messages or unexpected behavior</li>
+                        <li><strong>Browser Information:</strong> Browser type and version (Chrome, Firefox, etc.)</li>
+                        <li><strong>Operating System:</strong> Windows, macOS, or Linux version</li>
+                        <li><strong>Your Details:</strong> Username, department, and contact information</li>
+                        <li><strong>Urgency Level:</strong> Business impact and urgency assessment</li>
+                        <li><strong>Error Codes:</strong> Any specific error codes or messages displayed</li>
+                    </ul>
+                </div>
+
+                <h3>Self-Help Resources</h3>
+                <ul>
+                    <li><strong>This User Manual:</strong> Comprehensive guide to all system features</li>
+                    <li><strong>Built-in Help:</strong> Tooltips and help text throughout the application</li>
+                    <li><strong>Video Tutorials:</strong> Contact support for access to training materials</li>
+                    <li><strong>Peer Support:</strong> Department administrators can help with common tasks</li>
+                    <li><strong>FAQ Section:</strong> Frequently asked questions and solutions</li>
+                </ul>
+
+                <h3>Training & Documentation</h3>
+                <p>Additional training resources are available upon request:</p>
+                <ul>
+                    <li><strong>Live Training Sessions:</strong> Group training for new users or features</li>
+                    <li><strong>One-on-One Support:</strong> Personalized training for specific roles</li>
+                    <li><strong>Custom Documentation:</strong> Department-specific procedures and workflows</li>
+                    <li><strong>Video Walkthroughs:</strong> Screen recordings of common tasks</li>
+                </ul>
+
+                <h3>System Status & Maintenance</h3>
+                <div class="warning-panel">
+                    <strong>📅 Maintenance Windows:</strong><br>
+                    Scheduled maintenance typically occurs during off-hours to minimize disruption. Users will be notified in advance of any planned downtime.
+                </div>
+
+                <h4>Maintenance Notifications</h4>
+                <ul>
+                    <li>Email notifications sent 48 hours before maintenance</li>
+                    <li>System banner alerts displayed during maintenance windows</li>
+                    <li>Emergency maintenance communicated immediately</li>
+                    <li>Post-maintenance summaries provided</li>
+                </ul>
+
+                <div class="error-panel">
+                    <strong>🆘 Emergency Contact:</strong><br>
+                    For critical system failures outside business hours that affect business operations, contact Nikkel Jimenez directly. Include "SRPH-MIS EMERGENCY" in the subject line.
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="section">
+                <h2>🎉 Conclusion</h2>
+                <p>Thank you for using SRPH-MIS! This comprehensive manual covers all aspects of the system, from basic navigation to advanced administration. The system is designed to be intuitive and user-friendly, but don't hesitate to reach out for support when needed.</p>
+
+                <div class="info-panel">
+                    <strong>Remember:</strong>
+                    <ul>
+                        <li>Keep your login credentials secure</li>
+                        <li>Report any security concerns immediately</li>
+                        <li>Follow your organization's IT policies</li>
+                        <li>Regularly backup important data</li>
+                        <li>Provide feedback to help improve the system</li>
+                    </ul>
+                </div>
+
+                <h3>Document Information</h3>
+                <div class="table-responsive">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><strong>Version:</strong></td>
+                                <td>2.0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Last Updated:</strong></td>
+                                <td>January 2025</td>
+                            </tr>
+                            <tr>
+                                <td><strong>System Version:</strong></td>
+                                <td>SRPH-MIS User Management Fixed Release</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Document Type:</strong></td>
+                                <td>Complete User Manual</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>SRPH-MIS Documentation</h3>
+            <p>This manual is continuously updated to reflect new features and improvements.<br>
+            If you have suggestions for additional documentation or notice any inaccuracies, please contact our support team.</p>
+            <div style="margin-top: 20px;">
+                <span style="background: #f4f5f7; padding: 8px 15px; border-radius: 3px; margin: 0 5px; border: 1px solid #dfe1e6;">Version 2.0</span>
+                <span style="background: #f4f5f7; padding: 8px 15px; border-radius: 3px; margin: 0 5px; border: 1px solid #dfe1e6;">Last Updated: January 2025</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
